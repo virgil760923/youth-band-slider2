@@ -1,86 +1,68 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>少年樂團隨機照片播放</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #slider {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 1;
+    transition: opacity 1.2s ease-in-out;
+  }
+  .fade-out {
+    opacity: 0 !important;
+  }
+</style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="zh-TW"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1">&lt;title&gt;少年樂團隨機照片播放&lt;/title&gt;</p>
-<p class="p1">&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>body, html {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>background-color: transparent;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>#slider {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>object-fit: cover;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>opacity: 1;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>transition: opacity 1.2s ease-in-out;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>.fade-out {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>opacity: 0 !important;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1">&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;img id="slider" src="" alt="Youth Band Slideshow"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const images = [</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"https://i.postimg.cc/xN1WH4gm/IMG-0870.jpg",</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"https://i.postimg.cc/xN1WH4gM/IMG-1008.jpg",</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"https://i.postimg.cc/zbjsyrwr/IMG-1009.jpg",</p>
-<p class="p1"><span class="Apple-converted-space">    </span>"https://i.postimg.cc/N943Kc8Y/IMG-1015.jpg"</p>
-<p class="p1"><span class="Apple-converted-space">  </span>];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const slider = document.getElementById("slider");</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let currentIndex = -1;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>function getRandomImage() {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>let newIndex;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>do {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>newIndex = Math.floor(Math.random() * images.length);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>} while (newIndex === currentIndex &amp;&amp; images.length &gt; 1);</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>currentIndex = newIndex;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return images[currentIndex];</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// 初始載入第一張照片</p>
-<p class="p1"><span class="Apple-converted-space">  </span>slider.src = getRandomImage();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// 每 4 秒更換一次照片</p>
-<p class="p1"><span class="Apple-converted-space">  </span>setInterval(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>slider.classList.add("fade-out");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>setTimeout(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>slider.src = getRandomImage();</p>
-<p class="p1"><span class="Apple-converted-space">      </span>slider.classList.remove("fade-out");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}, 1200);<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>}, 4000);<span class="Apple-converted-space"> </span></p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+  <img id="slider" src="" alt="Youth Band Slideshow">
+
+<script>
+  const images = [
+    "https://i.postimg.cc/xN1WH4gm/IMG-0870.jpg",
+    "https://i.postimg.cc/xN1WH4gM/IMG-1008.jpg",
+    "https://i.postimg.cc/zbjsyrwr/IMG-1009.jpg",
+    "https://i.postimg.cc/N943Kc8Y/IMG-1015.jpg"
+  ];
+
+  const slider = document.getElementById("slider");
+  let currentIndex = -1;
+
+  function getRandomImage() {
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * images.length);
+    } while (newIndex === currentIndex && images.length > 1);
+    
+    currentIndex = newIndex;
+    return images[currentIndex];
+  }
+
+  slider.src = getRandomImage();
+
+  setInterval(() => {
+    slider.classList.add("fade-out");
+    setTimeout(() => {
+      slider.src = getRandomImage();
+      slider.classList.remove("fade-out");
+    }, 1200); 
+  }, 4000); 
+</script>
+
 </body>
 </html>
